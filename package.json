@@ -2,7 +2,7 @@
   "name": "git-reset-selection",
   "main": "./lib/git-reset-selection",
   "version": "0.1.1",
-  "description": "git reset the currently selected text.",
+  "description": "git reset the currently selected text to HEAD.",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": "git-reset-selection:reset"
