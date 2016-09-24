@@ -1,0 +1,19 @@
+{
+  "name": "git-reset-selection",
+  "main": "./lib/git-reset-selection",
+  "version": "0.0.1",
+  "description": "git reset the current selected text.",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "git-reset-selection:reset"
+  },
+  "repository": "https://github.com/octalmage/git-reset-selection",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "devDependencies": {
+    "temp": "~0.6.0"
+  }
+}

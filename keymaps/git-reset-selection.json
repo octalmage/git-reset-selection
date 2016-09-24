@@ -1,0 +1,5 @@
+{
+  "atom-workspace": {
+    "cmd-alt-r": "git-reset-selection:reset"
+  }
+}

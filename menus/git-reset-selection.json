@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Reset Selection",
+        "command": "git-reset-selection:reset"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "git-reset-selection",
+          "submenu": [
+            {
+              "label": "Reset Selection",
+              "command": "git-reset-selection:reset"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
