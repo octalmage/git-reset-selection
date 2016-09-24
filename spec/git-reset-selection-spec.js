@@ -52,7 +52,7 @@ describe('GitResetSelection', () => {
       expect(editor.getText()).toEqual('bob\ntest');
     });
 
-    it('replaces the correct text with partial selection', () => {
+    it('replaces the correct text with partial selection (first half)', () => {
       GitResetSelection.exec.andCallFake((command, cmd, callback) => {
         callback(null, 'five\nsix\nseven\neight');
       });
@@ -62,6 +62,30 @@ describe('GitResetSelection', () => {
       GitResetSelection.reset();
 
       expect(editor.getText()).toEqual('five\nsix\nthree\nfour');
+    });
+
+    it('replaces the correct text with partial selection (second half)', () => {
+      GitResetSelection.exec.andCallFake((command, cmd, callback) => {
+        callback(null, 'five\nsix\nseven\neight');
+      });
+      editor.setText('one\ntwo\nthree\nfour');
+      editor.addSelectionForBufferRange([[2,0], [3,2]]);
+
+      GitResetSelection.reset();
+
+      expect(editor.getText()).toEqual('one\ntwo\nseven\neight');
+    });
+
+    it('replaces the correct text with one line selection', () => {
+      GitResetSelection.exec.andCallFake((command, cmd, callback) => {
+        callback(null, 'five\nsix\nseven\neight');
+      });
+      editor.setText('one\ntwo\nthree\nfour');
+      editor.addSelectionForBufferRange([[2,0], [2,2]]);
+
+      GitResetSelection.reset();
+
+      expect(editor.getText()).toEqual('one\ntwo\nseven\nfour');
     });
 
   });
