@@ -42,7 +42,7 @@ describe('GitResetSelection', () => {
     });
 
     it('replaces the correct text', () => {
-      GitResetSelection.exec.andCallFake(function(command, cmd, callback) {
+      GitResetSelection.exec.andCallFake((command, cmd, callback) => {
         callback(null, 'bob\ntest');
       });
       editor.setText('test\nhello');
@@ -51,6 +51,18 @@ describe('GitResetSelection', () => {
       GitResetSelection.reset();
 
       expect(editor.getText()).toEqual('bob\ntest');
+    });
+
+    it('replaces the correct text with partial selection', () => {
+      GitResetSelection.exec.andCallFake((command, cmd, callback) => {
+        callback(null, 'five\nsix\nseven\neight');
+      });
+      editor.setText('one\ntwo\nthree\nfour');
+      editor.addSelectionForBufferRange([[0,0], [1,2]]);
+
+      GitResetSelection.reset();
+
+      expect(editor.getText()).toEqual('five\nsix\nthree\nfour');
     });
 
   });
