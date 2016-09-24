@@ -2,4 +2,6 @@
 
 > Atom package to git reset the currently selected text to HEAD.
 
+![](https://cldup.com/2n3YVrDoQT.gif)
+
 Use the context menu or the keyboard shortcut, <kbd>cmd</kbd>+<kbd>alt</kbd>+<kbd>r</kbd>.
