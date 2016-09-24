@@ -1,5 +1,4 @@
 'use babel';
-// TO
 
 import GitResetSelection from '../lib/git-reset-selection';
 import temp from 'temp';
