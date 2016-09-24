@@ -13,6 +13,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "devDependencies": {
+    "eslint": "^3.6.0",
     "temp": "~0.6.0"
   }
 }

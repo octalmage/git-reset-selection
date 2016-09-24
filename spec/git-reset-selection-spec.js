@@ -1,4 +1,5 @@
 'use babel';
+/* global atom, waitsForPromise */
 
 import GitResetSelection from '../lib/git-reset-selection';
 import temp from 'temp';
@@ -6,7 +7,7 @@ import path from 'path';
 import fs from 'fs';
 
 describe('GitResetSelection', () => {
-  let workspaceElement, activationPromise, editor, directory, filePath;
+  let editor, directory, filePath;
 
   beforeEach(() => {
     GitResetSelection.exec  = jasmine.createSpy('exec');
@@ -14,8 +15,6 @@ describe('GitResetSelection', () => {
     directory = temp.mkdirSync();
 
     atom.project.setPaths(directory);
-
-    workspaceElement = atom.views.getView(atom.workspace);
 
     filePath = path.join(directory, 'test.txt');
 
@@ -25,9 +24,9 @@ describe('GitResetSelection', () => {
       return atom.workspace.open(filePath).then((e) => {
         return editor = e;
       });
-    })
+    });
 
-    activationPromise = atom.packages.activatePackage('git-reset-selection');
+    atom.packages.activatePackage('git-reset-selection');
   });
 
   describe('when the git-reset-selection:reset event is triggered', () => {
