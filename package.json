@@ -1,7 +1,7 @@
 {
   "name": "git-reset-selection",
   "main": "./lib/git-reset-selection",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "git reset the current selected text.",
   "keywords": [
   ],
